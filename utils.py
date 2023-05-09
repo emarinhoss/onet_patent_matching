@@ -23,7 +23,7 @@ class Patent_ONET_tasks_matching:
         self.onet_tasks.embeddings = self.model.encode(self.onet_tasks.Task.values.tolist(), show_progress_bar=True)
 
         # Normalize the ONET-embeddings
-        self.onet_tasks.normalized_embeddings = self.onet_tasks.embeddings.values / np.linalg.norm(self.onet_tasks.embeddings.values, axis=1)[:, np.newaxis]
+        self.onet_tasks.normalized_embeddings = self.onet_tasks.embeddings / np.linalg.norm(self.onet_tasks.embeddings, axis=1)[:, np.newaxis]
         pass
 
     # Function that takes in a list of patent titles, generates the needed embeddings, and determines patents that closely match a task 
